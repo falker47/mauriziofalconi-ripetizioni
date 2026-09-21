@@ -104,7 +104,7 @@ def main() -> int:
 
     required_copy = [
         "Matematica e fisica",
-        "Scuole medie e superiori",
+        "scuole medie e superiori",
         "Comune di Parma",
         "377 098 2047",
     ]
