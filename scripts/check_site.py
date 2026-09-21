@@ -118,8 +118,14 @@ def main() -> int:
         add_error("index.html: in-person price 25 €/h missing", errors)
     if "google.com/maps/embed" not in index_text or 'title="Mappa di Parma"' not in index_text:
         add_error("index.html: Parma Google Maps embed missing", errors)
-    if "assets/MaurizioFalconiLogo.png" not in index_text:
-        add_error("index.html: primary visual logo asset missing", errors)
+    if 'class="hero-board"' not in index_text or 'class="board-graph"' not in index_text:
+        add_error("index.html: graphical hero board missing", errors)
+    if 'class="materials-grid"' not in index_text:
+        add_error("index.html: graphical materials grid missing", errors)
+    if "verificare la disponibilità nella tua area" not in index_text:
+        add_error("index.html: updated Parma availability copy missing", errors)
+    if "ho tutti i supporti necessari (e ti costa meno!)" not in index_text:
+        add_error("index.html: updated online-support copy missing", errors)
     if "#388e3c" not in css.lower():
         add_error("styles.css: original primary green #388e3c missing", errors)
 
