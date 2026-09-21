@@ -20,6 +20,18 @@ REDIRECTS = {
     "materiale-didattico.html": "#materiali",
 }
 
+APPROVED_TEL = "+393770982047"
+APPROVED_WHATSAPP = "https://wa.me/393770982047"
+FORBIDDEN_PUBLIC_MARKERS = [
+    "3454860367",
+    "393454860367",
+    "maurizio.falconi47@gmail.com",
+    "calendly.com",
+    "cusano milanino",
+    "15€/h",
+    "15 €/h",
+]
+
 
 class SiteParser(HTMLParser):
     def __init__(self) -> None:
@@ -78,13 +90,35 @@ def main() -> int:
             add_error(f"Legacy marker still present in public site: {marker}", errors)
 
     if re.search(r"[\w.+-]+@[\w.-]+\.[A-Za-z]{2,}", public_text):
-        add_error("An email address is exposed in the privacy-safe draft", errors)
-    if "mailto:" in lowered or "tel:" in lowered:
-        add_error("A direct email or telephone link is exposed in the privacy-safe draft", errors)
+        add_error("An email address is exposed in the public site", errors)
+    if "mailto:" in lowered:
+        add_error("A mailto link is exposed in the public site", errors)
+
+    for marker in FORBIDDEN_PUBLIC_MARKERS:
+        if marker.lower() in lowered:
+            add_error(f"Forbidden obsolete marker still exposed: {marker}", errors)
 
     index_text, index_parser = docs[ROOT / "index.html"]
     if '<html lang="it">' not in index_text.lower():
         add_error("index.html: lang=it missing", errors)
+
+    required_copy = [
+        "Matematica e fisica",
+        "Scuole medie e superiori",
+        "20 € / ora",
+        "25 € / ora",
+        "Comune di Parma",
+        "377 098 2047",
+    ]
+    for item in required_copy:
+        if item not in index_text:
+            add_error(f"index.html: missing confirmed public fact: {item}", errors)
+
+    tel_links = [href for href in index_parser.hrefs if href.startswith("tel:")]
+    if tel_links != [f"tel:{APPROVED_TEL}"]:
+        add_error(f"index.html: expected only approved telephone link tel:{APPROVED_TEL}", errors)
+    if APPROVED_WHATSAPP not in index_parser.hrefs:
+        add_error("index.html: approved WhatsApp link missing", errors)
 
     for href in index_parser.hrefs:
         if href.startswith("#"):
@@ -94,6 +128,8 @@ def main() -> int:
 
         parsed = urlparse(href)
         if parsed.scheme in {"http", "https"}:
+            continue
+        if parsed.scheme == "tel" and href == f"tel:{APPROVED_TEL}":
             continue
         if parsed.scheme:
             add_error(f"index.html: unsupported link scheme in {href}", errors)
