@@ -212,6 +212,11 @@ p { margin: 0 0 .9rem; }
   border-radius: 50%;
   background: var(--green-soft);
 }
+.tutor-headshot {
+  object-fit: cover;
+  object-position: center;
+  border: 2px solid #d6e6d7;
+}
 .preview-tutor strong,
 .preview-tutor span {
   display: block;
@@ -393,60 +398,6 @@ p { margin: 0 0 .9rem; }
   font-size: .9rem;
 }
 
-.method-section {
-  padding: 3rem 0;
-  border-block: 1px solid var(--line);
-  background: var(--green-soft);
-}
-.method-layout {
-  display: grid;
-  gap: 1.5rem;
-  align-items: center;
-}
-.method-copy > p:not(.eyebrow) {
-  max-width: 640px;
-  color: var(--muted);
-  font-size: .96rem;
-}
-.about-inline {
-  display: grid;
-  grid-template-columns: 42px 1fr;
-  gap: .65rem;
-  align-items: center;
-  max-width: 610px;
-  margin-top: 1rem;
-  padding-top: .85rem;
-  border-top: 1px solid #cfe0d0;
-  color: var(--muted);
-  font-size: .84rem;
-}
-.about-inline img { border-radius: 50%; }
-.about-inline strong { color: var(--green-deep); }
-.method-steps {
-  display: grid;
-  gap: .65rem;
-}
-.method-steps > div {
-  display: grid;
-  grid-template-columns: 40px 92px 1fr;
-  gap: .65rem;
-  align-items: center;
-  padding: .78rem .85rem;
-  border: 1px solid #d3e3d4;
-  border-radius: 13px;
-  background: rgba(255,255,255,.72);
-}
-.method-steps > div > span {
-  color: var(--green);
-  font-size: .72rem;
-  font-weight: 900;
-}
-.method-steps strong { font-size: .92rem; }
-.method-steps small {
-  color: var(--muted);
-  font-size: .78rem;
-}
-
 .utility-section {
   padding: 3.6rem 0;
 }
@@ -495,51 +446,52 @@ p { margin: 0 0 .9rem; }
 }
 .resources-head {
   display: grid;
-  gap: .45rem;
-  margin-bottom: 1rem;
+  gap: .4rem;
+  margin-bottom: .8rem;
 }
-.resources-head h2 { margin-bottom: .35rem; }
-.resources-head > p { margin-bottom: 0; }
-.resource-grid {
+.resources-head h2 { margin-bottom: .3rem; }
+.resources-head > p {
+  margin-bottom: 0;
+  line-height: 1.48;
+}
+.resource-benefits {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: .7rem;
+  gap: .6rem;
+  margin-bottom: .8rem;
 }
-.resource-item {
-  min-height: 118px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+.resource-benefit {
+  display: grid;
+  grid-template-columns: 44px 1fr;
   gap: .65rem;
-  padding: .8rem;
+  align-items: center;
+  padding: .7rem;
   border: 1px solid var(--line);
-  border-radius: 13px;
+  border-radius: 12px;
   background: #fcfefb;
 }
-.resource-link {
-  text-decoration: none;
-}
-.resource-link:hover {
-  border-color: #b9d6bb;
-  background: #f6fbf5;
-}
 .resource-icon {
-  width: 48px;
-  height: 40px;
+  width: 42px;
+  height: 36px;
   display: grid;
   place-items: center;
-  border-radius: 10px;
+  border-radius: 9px;
   background: var(--green-soft);
   color: var(--green-deep);
   font-weight: 850;
 }
-.resource-item strong,
-.resource-item small { display: block; }
-.resource-item strong { font-size: .86rem; }
-.resource-item small {
-  margin-top: .15rem;
+.resource-benefit strong,
+.resource-benefit small,
+.tool-chip strong,
+.tool-chip small {
+  display: block;
+}
+.resource-benefit strong {
+  font-size: .84rem;
+}
+.resource-benefit small {
+  margin-top: .1rem;
   color: var(--muted);
-  font-size: .72rem;
+  font-size: .7rem;
   line-height: 1.35;
 }
 .note-icon {
@@ -547,7 +499,7 @@ p { margin: 0 0 .9rem; }
   flex-direction: column;
   justify-content: center;
   gap: 4px;
-  padding: 0 9px;
+  padding: 0 8px;
 }
 .note-icon i {
   display: block;
@@ -558,13 +510,49 @@ p { margin: 0 0 .9rem; }
 }
 .note-icon i:nth-child(2) { width: 76%; }
 .note-icon i:nth-child(3) { width: 88%; }
-.exercise-icon {
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: .82rem;
+.handout-icon {
+  font-size: 1.2rem;
+}
+.tools-label {
+  margin: 0 0 .45rem;
+  color: var(--muted);
+  font-size: .69rem;
+  font-weight: 850;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.tools-row {
+  display: grid;
+  gap: .55rem;
+}
+.tool-chip {
+  display: grid;
+  grid-template-columns: 42px 1fr;
+  gap: .55rem;
+  align-items: center;
+  padding: .62rem;
+  border: 1px solid var(--line);
+  border-radius: 11px;
+  background: white;
+  color: inherit;
+  text-decoration: none;
+}
+.tool-chip:hover {
+  border-color: #b8d5ba;
+  background: #f7fbf6;
+}
+.tool-chip strong {
+  font-size: .78rem;
+}
+.tool-chip small {
+  margin-top: .08rem;
+  color: var(--muted);
+  font-size: .65rem;
+  line-height: 1.25;
 }
 .desmos-icon svg {
-  width: 42px;
-  height: 30px;
+  width: 36px;
+  height: 26px;
 }
 .desmos-icon path {
   fill: none;
@@ -572,11 +560,16 @@ p { margin: 0 0 .9rem; }
   stroke-width: 4;
   stroke-linecap: round;
 }
+.photomath-icon {
+  color: var(--green-dark);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.2rem;
+}
 .wolfram-icon {
   background: var(--green-deep);
   color: white;
   font-family: Georgia, "Times New Roman", serif;
-  font-size: 1.55rem;
+  font-size: 1.4rem;
 }
 
 .contact-section {
@@ -646,20 +639,18 @@ footer {
   .lesson-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
-  .method-steps {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-  .method-steps > div {
-    grid-template-columns: 1fr;
-    gap: .18rem;
-    min-height: 104px;
-  }
   .utility-grid {
     grid-template-columns: minmax(0, 1.08fr) minmax(340px, .92fr);
     align-items: stretch;
   }
   .resources-head {
     grid-template-columns: 1fr;
+  }
+  .resource-benefits {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .tools-row {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
   .contact-bar {
     grid-template-columns: 1.15fr .9fr auto;
@@ -688,9 +679,6 @@ footer {
   .compact-section {
     padding: 3.4rem 0;
   }
-  .method-layout {
-    grid-template-columns: minmax(0, 1fr) minmax(450px, .95fr);
-  }
   .resources-panel {
     padding: 1.2rem;
   }
@@ -709,17 +697,8 @@ footer {
   .compact-strip > div {
     padding-inline: .7rem;
   }
-  .method-steps > div {
-    grid-template-columns: 34px 80px 1fr;
-  }
-  .resource-grid {
+  .resource-benefits {
     grid-template-columns: 1fr;
-  }
-  .resource-item {
-    min-height: 88px;
-    display: grid;
-    grid-template-columns: 48px 1fr;
-    align-items: center;
   }
   .contact-bar {
     padding: 1.15rem;
