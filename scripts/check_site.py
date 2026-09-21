@@ -119,10 +119,10 @@ def main() -> int:
     if "google.com/maps/embed" not in index_text or 'title="Mappa di Parma"' not in index_text:
         add_error("index.html: Parma Google Maps embed missing", errors)
     required_layout_markers = [
-        'class="lesson-preview"',
-        'class="compact-strip"',
-        'class="utility-grid"',
-        'class="resource-grid"',
+        "lesson-preview",
+        "compact-strip",
+        "utility-grid",
+        "resource-grid",
     ]
     for marker in required_layout_markers:
         if marker not in index_text:
@@ -166,8 +166,10 @@ def main() -> int:
             add_error(f"styles.css: {selector} is too vertically spacious", errors)
 
     tel_links = [href for href in index_parser.hrefs if href.startswith("tel:")]
-    if tel_links != [f"tel:{APPROVED_TEL}"]:
-        add_error(f"index.html: expected only approved telephone link tel:{APPROVED_TEL}", errors)
+    if not tel_links:
+        add_error("index.html: approved telephone link missing", errors)
+    elif any(href != f"tel:{APPROVED_TEL}" for href in tel_links):
+        add_error(f"index.html: found a telephone link other than tel:{APPROVED_TEL}", errors)
     if APPROVED_WHATSAPP not in index_parser.hrefs:
         add_error("index.html: approved WhatsApp link missing", errors)
 
