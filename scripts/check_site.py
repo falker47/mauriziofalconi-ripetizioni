@@ -104,15 +104,24 @@ def main() -> int:
 
     required_copy = [
         "Matematica e fisica",
-        "Scuole medie e superiori",
-        "20 € / ora",
-        "25 € / ora",
+        "scuole medie e superiori",
         "Comune di Parma",
         "377 098 2047",
     ]
     for item in required_copy:
         if item not in index_text:
             add_error(f"index.html: missing confirmed public fact: {item}", errors)
+
+    if "20 €<span>/h</span>" not in index_text:
+        add_error("index.html: online price 20 €/h missing", errors)
+    if "25 €<span>/h</span>" not in index_text:
+        add_error("index.html: in-person price 25 €/h missing", errors)
+    if "google.com/maps/embed" not in index_text or 'title="Mappa di Parma"' not in index_text:
+        add_error("index.html: Parma Google Maps embed missing", errors)
+    if "assets/MaurizioFalconiLogo.png" not in index_text:
+        add_error("index.html: primary visual logo asset missing", errors)
+    if "#388e3c" not in css.lower():
+        add_error("styles.css: original primary green #388e3c missing", errors)
 
     tel_links = [href for href in index_parser.hrefs if href.startswith("tel:")]
     if tel_links != [f"tel:{APPROVED_TEL}"]:
