@@ -29,37 +29,60 @@
 
   <main id="contenuto">
     <section class="hero">
-      <div class="container hero-grid">
-        <div class="hero-copy-wrap">
-          <p class="eyebrow">Ripetizioni a Parma e online</p>
-          <h1>Matematica e fisica, senza imparare tutto a memoria.</h1>
-          <p class="hero-copy">
-            Lezioni per studenti delle scuole medie e superiori. Lavoriamo sui concetti,
-            capiamo dove nasce la difficoltà e poi passiamo agli esercizi.
-          </p>
-          <div class="hero-badges" aria-label="Informazioni principali">
-            <span>Medie e superiori</span>
-            <span>Online 20 €/h</span>
-            <span>Parma 25 €/h</span>
-          </div>
-          <div class="actions">
-            <a class="button primary" href="https://wa.me/393770982047" rel="noopener noreferrer">Scrivimi su WhatsApp</a>
-            <a class="button secondary" href="#materie">Scopri le lezioni</a>
-          </div>
-        </div>
-
-        <div class="hero-visual" aria-hidden="true">
-          <div class="formula formula-a">x² + y²</div>
-          <div class="formula formula-b">F = ma</div>
-          <div class="formula formula-c">π</div>
-          <div class="formula formula-d">∫ f(x) dx</div>
-          <div class="visual-card">
-            <img src="assets/MaurizioFalconiLogo.png" alt="">
-            <div class="visual-subjects">
-              <span class="subject-dot math">π</span>
-              <span class="subject-dot physics">Δ</span>
+      <div class="container">
+        <div class="hero-shell">
+          <div class="hero-copy-wrap">
+            <p class="eyebrow hero-eyebrow">Ripetizioni a Parma e online</p>
+            <h1>Capire il perché rende tutto più semplice.</h1>
+            <p class="hero-copy">
+              Matematica e fisica per studenti delle scuole medie e superiori.
+              Partiamo dai concetti, sciogliamo i dubbi e poi li trasformiamo in esercizi che sai affrontare da solo.
+            </p>
+            <div class="hero-badges" aria-label="Informazioni principali">
+              <span>Matematica + fisica</span>
+              <span>Medie e superiori</span>
+              <span>Parma + online</span>
             </div>
-            <p>Capire prima.<br>Esercitarsi poi.</p>
+            <div class="actions">
+              <a class="button hero-cta" href="https://wa.me/393770982047" rel="noopener noreferrer">Scrivimi su WhatsApp</a>
+              <a class="button hero-secondary" href="#materie">Modalità e prezzi</a>
+            </div>
+          </div>
+
+          <div class="hero-board" aria-label="Illustrazione didattica">
+            <div class="board-topline">
+              <span class="board-pill">Matematica</span>
+              <span class="board-pill">Fisica</span>
+            </div>
+            <svg class="board-graph" viewBox="0 0 520 310" role="img" aria-label="Grafico di una parabola e traiettoria di un corpo">
+              <defs>
+                <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
+                  <path d="M 32 0 L 0 0 0 32" fill="none" stroke="rgba(255,255,255,.10)" stroke-width="1"/>
+                </pattern>
+              </defs>
+              <rect width="520" height="310" fill="url(#grid)"/>
+              <line x1="58" y1="250" x2="470" y2="250" stroke="rgba(255,255,255,.58)" stroke-width="2"/>
+              <line x1="110" y1="275" x2="110" y2="52" stroke="rgba(255,255,255,.58)" stroke-width="2"/>
+              <path d="M 128 236 Q 262 62 402 236" fill="none" stroke="#d9f4b0" stroke-width="6" stroke-linecap="round"/>
+              <path d="M 145 206 Q 272 92 430 144" fill="none" stroke="#ffd166" stroke-width="5" stroke-linecap="round" stroke-dasharray="10 9"/>
+              <circle cx="430" cy="144" r="8" fill="#ffd166"/>
+              <text x="332" y="80" fill="rgba(255,255,255,.92)" font-size="24" font-family="Georgia, serif">F = ma</text>
+              <text x="145" y="92" fill="rgba(255,255,255,.92)" font-size="23" font-family="Georgia, serif">y = ax² + bx + c</text>
+              <text x="420" y="270" fill="rgba(255,255,255,.72)" font-size="18">x</text>
+              <text x="86" y="62" fill="rgba(255,255,255,.72)" font-size="18">y</text>
+            </svg>
+            <div class="board-note note-one">
+              <strong>1.</strong>
+              <span>Capire</span>
+            </div>
+            <div class="board-note note-two">
+              <strong>2.</strong>
+              <span>Applicare</span>
+            </div>
+            <div class="board-price">
+              <span>Online <strong>20 €/h</strong></span>
+              <span>Parma <strong>25 €/h</strong></span>
+            </div>
           </div>
         </div>
       </div>
@@ -143,7 +166,8 @@
           <h2>Lezioni nel Comune di Parma</h2>
           <p>
             Per le lezioni in presenza mi muovo nel Comune di Parma.
-            Se preferisci evitare spostamenti, possiamo lavorare anche online.
+            In ogni caso puoi contattarmi per verificare la disponibilità nella tua area.
+            Possiamo lavorare anche online: ho tutti i supporti necessari (e ti costa meno!).
           </p>
           <div class="map-points">
             <span>Parma città</span>
@@ -163,23 +187,69 @@
       </div>
     </section>
 
-    <section id="materiali" class="section section-soft">
+    <section id="materiali" class="section materials-section">
       <div class="container">
-        <div class="section-heading">
+        <div class="section-heading materials-heading">
           <p class="eyebrow">Materiali e strumenti</p>
-          <h2>Qualcosa da portarti dietro anche dopo la lezione</h2>
-          <p>Gli appunti e gli esercizi della lezione restano condivisi direttamente con te. Sul sito segnalo solo strumenti generali utili.</p>
+          <h2>La lezione non finisce quando chiudiamo il quaderno</h2>
+          <p>Ti rimangono appunti ed esercizi su cui tornare, più alcuni strumenti utili per controllare e visualizzare quello che stai studiando.</p>
         </div>
-        <div class="tools-grid">
-          <a class="tool-card" href="https://www.desmos.com/calculator?lang=it" rel="noopener noreferrer">
-            <span class="tool-mark">D</span>
-            <div><strong>Desmos</strong><small>Grafici e funzioni</small></div>
-            <span aria-hidden="true">↗</span>
+
+        <div class="materials-grid">
+          <article class="material-card material-notes">
+            <div class="material-visual notebook-visual" aria-hidden="true">
+              <span class="notebook-line line-1"></span>
+              <span class="notebook-line line-2"></span>
+              <span class="notebook-line line-3"></span>
+              <span class="notebook-formula">Δ = b² − 4ac</span>
+              <span class="notebook-check">✓</span>
+            </div>
+            <div class="material-copy">
+              <span class="material-kicker">Dopo la lezione</span>
+              <h3>Appunti ordinati</h3>
+              <p>I passaggi importanti restano a disposizione per riprendere il filo senza ricominciare da zero.</p>
+            </div>
+          </article>
+
+          <article class="material-card material-exercises">
+            <div class="material-visual exercise-visual" aria-hidden="true">
+              <span class="exercise-number">01</span>
+              <span class="exercise-equation">2x + 5 = 17</span>
+              <span class="exercise-arrow">→</span>
+              <span class="exercise-result">x = 6</span>
+            </div>
+            <div class="material-copy">
+              <span class="material-kicker">Allenamento</span>
+              <h3>Esercizi mirati</h3>
+              <p>Non una lista infinita: esercizi scelti per allenare esattamente il passaggio che stai imparando.</p>
+            </div>
+          </article>
+
+          <a class="material-card material-tool desmos-card" href="https://www.desmos.com/calculator?lang=it" rel="noopener noreferrer">
+            <div class="material-visual graph-visual" aria-hidden="true">
+              <svg viewBox="0 0 260 150">
+                <line x1="24" y1="124" x2="238" y2="124"/>
+                <line x1="56" y1="136" x2="56" y2="18"/>
+                <path d="M 66 114 C 92 108, 102 72, 126 72 C 152 72, 158 30, 218 26"/>
+              </svg>
+            </div>
+            <div class="material-copy">
+              <span class="material-kicker">Visualizzare</span>
+              <h3>Desmos <span aria-hidden="true">↗</span></h3>
+              <p>Grafici e funzioni diventano molto più intuitivi quando puoi vederli muoversi.</p>
+            </div>
           </a>
-          <a class="tool-card" href="https://www.wolframalpha.com/" rel="noopener noreferrer">
-            <span class="tool-mark">W</span>
-            <div><strong>Wolfram|Alpha</strong><small>Controlli, formule e unità</small></div>
-            <span aria-hidden="true">↗</span>
+
+          <a class="material-card material-tool wolfram-card" href="https://www.wolframalpha.com/" rel="noopener noreferrer">
+            <div class="material-visual alpha-visual" aria-hidden="true">
+              <span class="alpha-symbol">∑</span>
+              <span class="alpha-mini">∫ · π · √</span>
+            </div>
+            <div class="material-copy">
+              <span class="material-kicker">Controllare</span>
+              <h3>Wolfram|Alpha <span aria-hidden="true">↗</span></h3>
+              <p>Un supporto potente per formule, unità di misura e controlli sui risultati.</p>
+            </div>
           </a>
         </div>
       </div>
