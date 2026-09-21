@@ -1,0 +1,130 @@
+from __future__ import annotations
+
+from html.parser import HTMLParser
+from pathlib import Path
+import re
+import sys
+from urllib.parse import urlparse
+
+ROOT = Path(__file__).resolve().parents[1]
+HTML_FILES = [
+    ROOT / "index.html",
+    ROOT / "contattami.html",
+    ROOT / "prenota-una-lezione.html",
+    ROOT / "materiale-didattico.html",
+    ROOT / "404.html",
+]
+REDIRECTS = {
+    "contattami.html": "#contatti",
+    "prenota-una-lezione.html": "#contatti",
+    "materiale-didattico.html": "#materiali",
+}
+
+
+class SiteParser(HTMLParser):
+    def __init__(self) -> None:
+        super().__init__(convert_charrefs=True)
+        self.ids: set[str] = set()
+        self.hrefs: list[str] = []
+        self.has_viewport = False
+        self.has_main = False
+
+    def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+        data = dict(attrs)
+        if data.get("id"):
+            self.ids.add(data["id"] or "")
+        if tag == "a" and data.get("href"):
+            self.hrefs.append(data["href"] or "")
+        if tag == "meta" and data.get("name", "").lower() == "viewport":
+            self.has_viewport = True
+        if tag == "main":
+            self.has_main = True
+
+
+def add_error(message: str, errors: list[str]) -> None:
+    errors.append(message)
+
+
+def main() -> int:
+    errors: list[str] = []
+
+    for path in HTML_FILES:
+        if not path.exists():
+            add_error(f"Missing required file: {path.relative_to(ROOT)}", errors)
+
+    if errors:
+        print("\n".join(f"ERROR: {error}" for error in errors))
+        return 1
+
+    docs: dict[Path, tuple[str, SiteParser]] = {}
+    for path in HTML_FILES:
+        text = path.read_text(encoding="utf-8")
+        parser = SiteParser()
+        parser.feed(text)
+        docs[path] = (text, parser)
+
+        if not parser.has_viewport:
+            add_error(f"{path.name}: missing viewport meta", errors)
+        if not parser.has_main:
+            add_error(f"{path.name}: missing main landmark", errors)
+
+    css = (ROOT / "styles.css").read_text(encoding="utf-8")
+    public_text = "\n".join(text for text, _ in docs.values()) + "\n" + css
+    lowered = public_text.lower()
+
+    legacy_markers = ["web" + "node", "cloudfront" + ".net"]
+    for marker in legacy_markers:
+        if marker in lowered:
+            add_error(f"Legacy marker still present in public site: {marker}", errors)
+
+    if re.search(r"[\w.+-]+@[\w.-]+\.[A-Za-z]{2,}", public_text):
+        add_error("An email address is exposed in the privacy-safe draft", errors)
+    if "mailto:" in lowered or "tel:" in lowered:
+        add_error("A direct email or telephone link is exposed in the privacy-safe draft", errors)
+
+    index_text, index_parser = docs[ROOT / "index.html"]
+    if '<html lang="it">' not in index_text.lower():
+        add_error("index.html: lang=it missing", errors)
+
+    for href in index_parser.hrefs:
+        if href.startswith("#"):
+            if href[1:] not in index_parser.ids:
+                add_error(f"index.html: missing anchor target {href}", errors)
+            continue
+
+        parsed = urlparse(href)
+        if parsed.scheme in {"http", "https"}:
+            continue
+        if parsed.scheme:
+            add_error(f"index.html: unsupported link scheme in {href}", errors)
+            continue
+
+        target_path = parsed.path
+        if target_path in {"", "./"}:
+            continue
+        target = (ROOT / target_path).resolve()
+        if not target.exists():
+            add_error(f"index.html: missing internal target {target_path}", errors)
+
+    for filename, anchor in REDIRECTS.items():
+        text, parser = docs[ROOT / filename]
+        if anchor not in text:
+            add_error(f"{filename}: expected redirect target {anchor}", errors)
+        if "./" + anchor not in parser.hrefs:
+            add_error(f"{filename}: missing fallback link to ./{anchor}", errors)
+
+    if "@media (min-width:" not in css:
+        add_error("styles.css: responsive breakpoint missing", errors)
+    if "prefers-reduced-motion" not in css:
+        add_error("styles.css: reduced-motion handling missing", errors)
+
+    if errors:
+        print("\n".join(f"ERROR: {error}" for error in errors))
+        return 1
+
+    print("Site quality checks passed.")
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())
