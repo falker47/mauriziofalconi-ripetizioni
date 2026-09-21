@@ -122,7 +122,8 @@ def main() -> int:
         "lesson-preview",
         "compact-strip",
         "utility-grid",
-        "resource-grid",
+        "resource-benefits",
+        "tools-row",
     ]
     for marker in required_layout_markers:
         if marker not in index_text:
@@ -136,6 +137,19 @@ def main() -> int:
     for marker in obsolete_layout_markers:
         if marker in index_text:
             add_error(f"index.html: oversized previous layout still present: {marker}", errors)
+    if 'id="metodo"' in index_text or 'href="#metodo"' in index_text:
+        add_error("index.html: redundant standalone method section/navigation still present", errors)
+    if "assets/maurizio-headshot.webp" not in index_text:
+        add_error("index.html: tutor headshot is missing from the hero card", errors)
+    if not (ROOT / "assets" / "maurizio-headshot.webp").exists():
+        add_error("assets/maurizio-headshot.webp: file missing", errors)
+    if "gli appunti della lezione restano disponibili in formato digitale" not in index_text:
+        add_error("index.html: digital lesson-notes benefit missing", errors)
+    if "ti fornisco dispense utili" not in index_text:
+        add_error("index.html: handouts benefit missing", errors)
+    if "https://photomath.com/it" not in index_text:
+        add_error("index.html: Photomath resource link missing", errors)
+
     if "verificare la disponibilità nella tua area" not in index_text:
         add_error("index.html: updated Parma availability copy missing", errors)
     if "ho tutti i supporti necessari (e ti costa meno!)" not in index_text:
@@ -153,7 +167,7 @@ def main() -> int:
     elif float(h1_match.group(1)) > 4.0:
         add_error("styles.css: desktop hero title is too large", errors)
 
-    compact_section_rules = [".compact-section", ".method-section", ".utility-section"]
+    compact_section_rules = [".compact-section", ".utility-section"]
     for selector in compact_section_rules:
         match = re.search(
             re.escape(selector) + r"\s*\{[^}]*padding:\s*([0-9.]+)rem\s+0",
