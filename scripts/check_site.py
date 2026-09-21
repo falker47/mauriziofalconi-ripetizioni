@@ -112,16 +112,30 @@ def main() -> int:
         if item not in index_text:
             add_error(f"index.html: missing confirmed public fact: {item}", errors)
 
-    if "20 €<span>/h</span>" not in index_text:
+    if "20 € / h" not in index_text:
         add_error("index.html: online price 20 €/h missing", errors)
-    if "25 €<span>/h</span>" not in index_text:
+    if "25 € / h" not in index_text:
         add_error("index.html: in-person price 25 €/h missing", errors)
     if "google.com/maps/embed" not in index_text or 'title="Mappa di Parma"' not in index_text:
         add_error("index.html: Parma Google Maps embed missing", errors)
-    if 'class="hero-board"' not in index_text or 'class="board-graph"' not in index_text:
-        add_error("index.html: graphical hero board missing", errors)
-    if 'class="materials-grid"' not in index_text:
-        add_error("index.html: graphical materials grid missing", errors)
+    required_layout_markers = [
+        "lesson-preview",
+        "compact-strip",
+        "utility-grid",
+        "resource-grid",
+    ]
+    for marker in required_layout_markers:
+        if marker not in index_text:
+            add_error(f"index.html: compact layout marker missing: {marker}", errors)
+
+    obsolete_layout_markers = [
+        'class="hero-board"',
+        'class="materials-grid"',
+        'class="hero-shell"',
+    ]
+    for marker in obsolete_layout_markers:
+        if marker in index_text:
+            add_error(f"index.html: oversized previous layout still present: {marker}", errors)
     if "verificare la disponibilità nella tua area" not in index_text:
         add_error("index.html: updated Parma availability copy missing", errors)
     if "ho tutti i supporti necessari (e ti costa meno!)" not in index_text:
@@ -129,9 +143,33 @@ def main() -> int:
     if "#388e3c" not in css.lower():
         add_error("styles.css: original primary green #388e3c missing", errors)
 
+    h1_match = re.search(
+        r"h1\s*\{[^}]*font-size:\s*clamp\([^,]+,[^,]+,\s*([0-9.]+)rem\)",
+        css,
+        re.DOTALL,
+    )
+    if not h1_match:
+        add_error("styles.css: h1 clamp sizing missing", errors)
+    elif float(h1_match.group(1)) > 4.0:
+        add_error("styles.css: desktop hero title is too large", errors)
+
+    compact_section_rules = [".compact-section", ".method-section", ".utility-section"]
+    for selector in compact_section_rules:
+        match = re.search(
+            re.escape(selector) + r"\s*\{[^}]*padding:\s*([0-9.]+)rem\s+0",
+            css,
+            re.DOTALL,
+        )
+        if not match:
+            add_error(f"styles.css: compact spacing rule missing for {selector}", errors)
+        elif float(match.group(1)) > 4.0:
+            add_error(f"styles.css: {selector} is too vertically spacious", errors)
+
     tel_links = [href for href in index_parser.hrefs if href.startswith("tel:")]
-    if tel_links != [f"tel:{APPROVED_TEL}"]:
-        add_error(f"index.html: expected only approved telephone link tel:{APPROVED_TEL}", errors)
+    if not tel_links:
+        add_error("index.html: approved telephone link missing", errors)
+    elif any(href != f"tel:{APPROVED_TEL}" for href in tel_links):
+        add_error(f"index.html: found a telephone link other than tel:{APPROVED_TEL}", errors)
     if APPROVED_WHATSAPP not in index_parser.hrefs:
         add_error("index.html: approved WhatsApp link missing", errors)
 
