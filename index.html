@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Ripetizioni di matematica e fisica a Parma e online con Maurizio Falconi, per studenti delle scuole medie e superiori.">
-  <meta name="theme-color" content="#f5f7fb">
+  <meta name="theme-color" content="#388e3c">
   <title>Maurizio Falconi — Ripetizioni di matematica e fisica</title>
   <link rel="icon" href="assets/mf-circle-logo.png">
   <link rel="stylesheet" href="styles.css">
@@ -15,13 +15,13 @@
   <header class="site-header">
     <div class="container header-inner">
       <a class="brand" href="./" aria-label="Maurizio Falconi, home">
-        <img src="assets/mf-circle-logo.png" width="42" height="42" alt="">
+        <img src="assets/mf-circle-logo.png" width="44" height="44" alt="">
         <span>Maurizio Falconi</span>
       </a>
       <nav aria-label="Navigazione principale">
-        <a href="#ripetizioni">Ripetizioni</a>
-        <a href="#metodo">Metodo</a>
-        <a href="#materiali">Materiali</a>
+        <a href="#materie">Materie</a>
+        <a href="#come-funziona">Come funziona</a>
+        <a href="#parma">Parma</a>
         <a href="#contatti">Contatti</a>
       </nav>
     </div>
@@ -30,131 +30,188 @@
   <main id="contenuto">
     <section class="hero">
       <div class="container hero-grid">
-        <div>
+        <div class="hero-copy-wrap">
           <p class="eyebrow">Ripetizioni a Parma e online</p>
-          <h1>Matematica e fisica, spiegate per essere capite.</h1>
+          <h1>Matematica e fisica, senza imparare tutto a memoria.</h1>
           <p class="hero-copy">
-            Ripetizioni per studenti delle scuole medie e superiori, con un approccio basato sul ragionamento:
-            prima si chiariscono i concetti, poi si applicano agli esercizi.
+            Lezioni per studenti delle scuole medie e superiori. Lavoriamo sui concetti,
+            capiamo dove nasce la difficoltà e poi passiamo agli esercizi.
           </p>
+          <div class="hero-badges" aria-label="Informazioni principali">
+            <span>Medie e superiori</span>
+            <span>Online 20 €/h</span>
+            <span>Parma 25 €/h</span>
+          </div>
           <div class="actions">
-            <a class="button primary" href="#ripetizioni">Modalità e prezzi</a>
-            <a class="button secondary" href="#contatti">Contattami</a>
+            <a class="button primary" href="https://wa.me/393770982047" rel="noopener noreferrer">Scrivimi su WhatsApp</a>
+            <a class="button secondary" href="#materie">Scopri le lezioni</a>
           </div>
         </div>
-        <aside class="summary-card" aria-label="In breve">
-          <p class="card-label">In breve</p>
-          <dl>
-            <div><dt>Materie</dt><dd>Matematica e fisica</dd></div>
-            <div><dt>Livelli</dt><dd>Scuole medie e superiori</dd></div>
-            <div><dt>Modalità</dt><dd>Online o in presenza</dd></div>
-            <div><dt>Zona presenza</dt><dd>Comune di Parma</dd></div>
-          </dl>
-        </aside>
+
+        <div class="hero-visual" aria-hidden="true">
+          <div class="formula formula-a">x² + y²</div>
+          <div class="formula formula-b">F = ma</div>
+          <div class="formula formula-c">π</div>
+          <div class="formula formula-d">∫ f(x) dx</div>
+          <div class="visual-card">
+            <img src="assets/MaurizioFalconiLogo.png" alt="">
+            <div class="visual-subjects">
+              <span class="subject-dot math">π</span>
+              <span class="subject-dot physics">Δ</span>
+            </div>
+            <p>Capire prima.<br>Esercitarsi poi.</p>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section id="ripetizioni" class="section">
+    <section id="materie" class="section">
       <div class="container">
-        <p class="eyebrow">Ripetizioni</p>
-        <h2>Modalità semplici, prezzi chiari</h2>
-        <div class="cards two pricing">
-          <article class="card price-card">
-            <p class="card-label">Online</p>
-            <h3>20 € / ora</h3>
-            <p>Lezioni di matematica o fisica da remoto.</p>
+        <div class="section-heading">
+          <p class="eyebrow">Cosa insegno</p>
+          <h2>Due materie, un unico metodo</h2>
+          <p>Spiegazioni chiare, esempi concreti e tanto spazio agli esercizi.</p>
+        </div>
+
+        <div class="subject-grid">
+          <article class="subject-card">
+            <div class="subject-icon">π</div>
+            <div>
+              <h3>Matematica</h3>
+              <p>Algebra, equazioni, geometria, funzioni, trigonometria, analisi e gli argomenti previsti dal tuo percorso scolastico.</p>
+            </div>
           </article>
-          <article class="card price-card">
-            <p class="card-label">In presenza</p>
-            <h3>25 € / ora</h3>
-            <p>Lezioni nel Comune di Parma.</p>
+          <article class="subject-card">
+            <div class="subject-icon">F</div>
+            <div>
+              <h3>Fisica</h3>
+              <p>Problemi, formule e ragionamento fisico: capire cosa rappresentano le grandezze prima di sostituire numeri nelle formule.</p>
+            </div>
           </article>
         </div>
 
-        <h2 class="subsection-title">Su cosa lavoriamo</h2>
-        <div class="cards three">
-          <article class="card">
-            <h3>Recupero delle lacune</h3>
-            <p>Riprendiamo i passaggi che non sono chiari e ricostruiamo le basi necessarie per affrontare gli argomenti successivi.</p>
+        <div class="pricing-grid" aria-label="Prezzi">
+          <article class="price-card">
+            <div>
+              <p class="card-label">Online</p>
+              <h3>20 €<span>/h</span></h3>
+            </div>
+            <p>Da remoto, con spiegazioni ed esercizi condivisi durante la lezione.</p>
           </article>
-          <article class="card">
-            <h3>Preparazione a verifiche</h3>
-            <p>Organizziamo il ripasso sugli argomenti richiesti e lavoriamo su esercizi rappresentativi, con attenzione ai passaggi più fragili.</p>
-          </article>
-          <article class="card">
-            <h3>Metodo di risoluzione</h3>
-            <p>L'obiettivo non è ricordare una sequenza meccanica, ma capire perché un procedimento funziona e quando usarlo.</p>
+          <article class="price-card featured">
+            <div>
+              <p class="card-label">In presenza</p>
+              <h3>25 €<span>/h</span></h3>
+            </div>
+            <p>Nel Comune di Parma, per lavorare insieme direttamente su teoria ed esercizi.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <section id="metodo" class="section section-alt">
-      <div class="container split">
-        <div>
-          <p class="eyebrow">Metodo</p>
-          <h2>Teoria essenziale, poi esercizi</h2>
-          <p>
-            Parto dai concetti indispensabili e li collego subito agli esercizi. Durante la risoluzione esplicito i passaggi,
-            controllo dove nasce l'errore e cerco di rendere il procedimento riutilizzabile su problemi simili.
-          </p>
-          <p>
-            Le lezioni vengono adattate all'argomento e al livello dello studente, senza promettere scorciatoie o risultati automatici.
-          </p>
-        </div>
-        <ol class="steps" aria-label="Fasi tipiche di una lezione">
-          <li><span>1</span><div><strong>Capire il problema</strong><p>Individuiamo cosa non è chiaro e quali prerequisiti servono.</p></div></li>
-          <li><span>2</span><div><strong>Ricostruire il concetto</strong><p>Spiegazione sintetica, con esempi e collegamenti logici.</p></div></li>
-          <li><span>3</span><div><strong>Applicarlo</strong><p>Esercizi guidati e poi progressivamente più autonomi.</p></div></li>
-        </ol>
-      </div>
-    </section>
-
-    <section id="materiali" class="section">
+    <section id="come-funziona" class="section section-soft">
       <div class="container">
-        <p class="eyebrow">Materiali</p>
-        <h2>Strumenti utili, selezionati</h2>
-        <p class="section-intro">
-          Appunti ed esercizi legati alle lezioni vengono condivisi direttamente con lo studente.
-          Sul sito pubblico restano soltanto risorse generali utili allo studio.
-        </p>
-        <div class="cards two">
-          <article class="card">
-            <h3>Desmos</h3>
-            <p>Per visualizzare rapidamente grafici e trasformazioni di funzioni.</p>
-            <a class="text-link" href="https://www.desmos.com/calculator?lang=it" rel="noopener noreferrer">Apri Desmos <span aria-hidden="true">↗</span></a>
+        <div class="section-heading">
+          <p class="eyebrow">Come funziona</p>
+          <h2>Una lezione costruita sul punto in cui sei</h2>
+        </div>
+
+        <div class="process-grid">
+          <article class="process-card">
+            <span class="process-number">1</span>
+            <h3>Partiamo dal dubbio</h3>
+            <p>Mi mostri l'argomento, l'esercizio o il passaggio che non torna.</p>
           </article>
-          <article class="card">
-            <h3>Wolfram|Alpha</h3>
-            <p>Utile per controllare risultati, esplorare passaggi e lavorare con formule e unità di misura.</p>
-            <a class="text-link" href="https://www.wolframalpha.com/" rel="noopener noreferrer">Apri Wolfram|Alpha <span aria-hidden="true">↗</span></a>
+          <article class="process-card">
+            <span class="process-number">2</span>
+            <h3>Rimettiamo ordine</h3>
+            <p>Ricostruiamo la teoria necessaria senza aggiungere nozioni inutili.</p>
+          </article>
+          <article class="process-card">
+            <span class="process-number">3</span>
+            <h3>Lo facciamo insieme</h3>
+            <p>Applichiamo il concetto agli esercizi finché il procedimento diventa tuo.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="section section-alt" aria-labelledby="chi-sono">
-      <div class="container narrow">
-        <p class="eyebrow">Chi sono</p>
-        <h2 id="chi-sono">Maurizio Falconi</h2>
-        <p>
-          Sono un Data Engineer con background STEM, in particolare in fisica e matematica.
-          Nelle ripetizioni porto lo stesso approccio che uso nei problemi tecnici: scomporre il problema,
-          capire le ipotesi e arrivare alla soluzione con passaggi controllabili.
-        </p>
+    <section id="parma" class="section map-section">
+      <div class="container map-grid">
+        <div class="map-copy">
+          <p class="eyebrow">In presenza</p>
+          <h2>Lezioni nel Comune di Parma</h2>
+          <p>
+            Per le lezioni in presenza mi muovo nel Comune di Parma.
+            Se preferisci evitare spostamenti, possiamo lavorare anche online.
+          </p>
+          <div class="map-points">
+            <span>Parma città</span>
+            <span>Online disponibile</span>
+          </div>
+          <a class="text-link" href="https://www.google.com/maps/search/?api=1&query=Parma%2C%20PR" rel="noopener noreferrer">Apri Parma su Google Maps <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="map-frame">
+          <iframe
+            title="Mappa di Parma"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d45300.940524312464!2d10.301021257226575!3d44.79489540672298!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47806ae154d4c32f%3A0x3a137735c90369a!2sParma%20PR!5e0!3m2!1sit!2sit!4v1694862606423!5m2!1sit!2sit"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            allowfullscreen>
+          </iframe>
+        </div>
       </div>
     </section>
 
-    <section id="contatti" class="section">
-      <div class="container contact-panel">
+    <section id="materiali" class="section section-soft">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Materiali e strumenti</p>
+          <h2>Qualcosa da portarti dietro anche dopo la lezione</h2>
+          <p>Gli appunti e gli esercizi della lezione restano condivisi direttamente con te. Sul sito segnalo solo strumenti generali utili.</p>
+        </div>
+        <div class="tools-grid">
+          <a class="tool-card" href="https://www.desmos.com/calculator?lang=it" rel="noopener noreferrer">
+            <span class="tool-mark">D</span>
+            <div><strong>Desmos</strong><small>Grafici e funzioni</small></div>
+            <span aria-hidden="true">↗</span>
+          </a>
+          <a class="tool-card" href="https://www.wolframalpha.com/" rel="noopener noreferrer">
+            <span class="tool-mark">W</span>
+            <div><strong>Wolfram|Alpha</strong><small>Controlli, formule e unità</small></div>
+            <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section about-section" aria-labelledby="chi-sono">
+      <div class="container about-grid">
+        <div class="about-mark">
+          <img src="assets/mf-circle-logo.png" alt="Logo di Maurizio Falconi" width="150" height="150">
+        </div>
         <div>
-          <p class="eyebrow">Contatti</p>
-          <h2>Scrivimi o chiamami</h2>
-          <p>Per informazioni o per concordare una lezione puoi contattarmi direttamente al <strong>377 098 2047</strong>.</p>
+          <p class="eyebrow">Chi sono</p>
+          <h2 id="chi-sono">Maurizio Falconi</h2>
+          <p>
+            Sono un Data Engineer con background STEM, in particolare in fisica e matematica.
+            Quando spiego cerco di fare la stessa cosa che faccio davanti a un problema tecnico:
+            dividerlo in parti semplici, capire cosa sappiamo e costruire la soluzione passo dopo passo.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contatti" class="section contact-section">
+      <div class="container contact-card">
+        <div>
+          <p class="eyebrow light">Contatti</p>
+          <h2>Hai un argomento che non ti torna?</h2>
+          <p>Scrivimi su WhatsApp oppure chiamami al <strong>377 098 2047</strong>. Possiamo concordare insieme modalità, giorno e argomento della lezione.</p>
         </div>
         <div class="contact-actions">
-          <a class="button primary" href="https://wa.me/393770982047" rel="noopener noreferrer">WhatsApp</a>
-          <a class="button secondary" href="tel:+393770982047">Chiama</a>
+          <a class="button white" href="https://wa.me/393770982047" rel="noopener noreferrer">WhatsApp</a>
+          <a class="button ghost" href="tel:+393770982047">Chiama</a>
         </div>
       </div>
     </section>
@@ -162,7 +219,10 @@
 
   <footer>
     <div class="container footer-inner">
-      <span>© Maurizio Falconi</span>
+      <div class="footer-brand">
+        <img src="assets/mf-circle-logo.png" width="32" height="32" alt="">
+        <span>Maurizio Falconi</span>
+      </div>
       <span>Ripetizioni di matematica e fisica · Parma e online</span>
     </div>
   </footer>
