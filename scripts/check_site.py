@@ -149,6 +149,10 @@ def main() -> int:
         add_error("index.html: handouts benefit missing", errors)
     if "https://photomath.com/it" not in index_text:
         add_error("index.html: Photomath resource link missing", errors)
+    if 'href="styles.css?v=' not in index_text:
+        add_error("index.html: cache-busted stylesheet reference missing", errors)
+    if "resource-benefit-copy" not in index_text or "tool-copy" not in index_text:
+        add_error("index.html: robust materials copy wrappers missing", errors)
 
     if "verificare la disponibilità nella tua area" not in index_text:
         add_error("index.html: updated Parma availability copy missing", errors)
