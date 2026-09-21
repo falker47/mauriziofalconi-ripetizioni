@@ -21,7 +21,6 @@
 
       <nav aria-label="Navigazione principale">
         <a href="#lezioni">Lezioni</a>
-        <a href="#metodo">Metodo</a>
         <a href="#parma">Parma</a>
         <a href="#materiali">Materiali</a>
       </nav>
@@ -54,7 +53,7 @@
 
         <aside class="lesson-preview" aria-label="Come si svolge una lezione">
           <div class="preview-tutor">
-            <img src="assets/mf-circle-logo.png" width="48" height="48" alt="">
+            <img class="tutor-headshot" src="assets/maurizio-headshot.webp" width="48" height="48" alt="Ritratto di Maurizio Falconi">
             <div>
               <strong>Maurizio Falconi</strong>
               <span>Data Engineer · background STEM</span>
@@ -140,29 +139,6 @@
       </div>
     </section>
 
-    <section id="metodo" class="method-section">
-      <div class="container method-layout">
-        <div class="method-copy">
-          <p class="eyebrow">Metodo</p>
-          <h2>Pochi passaggi, sempre chiari.</h2>
-          <p>
-            Non preparo lezioni “standard”: parto da dove sei davvero.
-            L'obiettivo non è arrivare alla risposta insieme una volta, ma lasciarti un criterio che funzioni anche quando sei da solo.
-          </p>
-          <div class="about-inline">
-            <img src="assets/mf-circle-logo.png" width="42" height="42" alt="">
-            <span><strong>Sono Maurizio.</strong> Lavoro come Data Engineer e ho un background STEM in fisica e matematica.</span>
-          </div>
-        </div>
-
-        <div class="method-steps">
-          <div><span>01</span><strong>Capire</strong><small>Qual è il dubbio reale?</small></div>
-          <div><span>02</span><strong>Collegare</strong><small>Quale teoria serve?</small></div>
-          <div><span>03</span><strong>Applicare</strong><small>Come si usa negli esercizi?</small></div>
-        </div>
-      </div>
-    </section>
-
     <section class="utility-section">
       <div class="container utility-grid">
         <article id="parma" class="location-panel">
@@ -192,34 +168,43 @@
           <div class="resources-head">
             <div>
               <p class="eyebrow">Materiali</p>
-              <h2>Ti resta qualcosa da usare.</h2>
+              <h2>La lezione ti rimane.</h2>
             </div>
-            <p>Appunti, esercizi e strumenti utili senza trasformare il sito in una biblioteca infinita.</p>
+            <p>
+              Quello che facciamo non sparisce quando finisce l'ora: gli appunti della lezione restano disponibili in formato digitale
+              e, quando serve, ti fornisco dispense utili per ripassare teoria, formule ed esercizi.
+            </p>
           </div>
 
-          <div class="resource-grid">
-            <div class="resource-item">
-              <span class="resource-icon note-icon" aria-hidden="true">
-                <i></i><i></i><i></i>
-              </span>
-              <div><strong>Appunti</strong><small>I passaggi importanti della lezione.</small></div>
+          <div class="resource-benefits">
+            <div class="resource-benefit">
+              <span class="resource-icon note-icon" aria-hidden="true"><i></i><i></i><i></i></span>
+              <div><strong>Appunti digitali</strong><small>Ritrovi i passaggi e gli esempi affrontati insieme durante la lezione.</small></div>
             </div>
 
-            <div class="resource-item">
-              <span class="resource-icon exercise-icon" aria-hidden="true">x = 6</span>
-              <div><strong>Esercizi</strong><small>Mirati al passaggio che stai imparando.</small></div>
+            <div class="resource-benefit">
+              <span class="resource-icon handout-icon" aria-hidden="true">▤</span>
+              <div><strong>Dispense utili</strong><small>Materiale selezionato per teoria, formule ed esercizi quando può aiutarti nel ripasso.</small></div>
             </div>
+          </div>
 
-            <a class="resource-item resource-link" href="https://www.desmos.com/calculator?lang=it" rel="noopener noreferrer">
+          <p class="tools-label">Strumenti che consiglio</p>
+          <div class="tools-row">
+            <a class="tool-chip" href="https://www.desmos.com/calculator?lang=it" rel="noopener noreferrer">
               <span class="resource-icon desmos-icon" aria-hidden="true">
                 <svg viewBox="0 0 54 40"><path d="M3 34 C10 31, 14 10, 25 19 C34 27, 37 4, 51 5"/></svg>
               </span>
-              <div><strong>Desmos ↗</strong><small>Grafici e funzioni.</small></div>
+              <span><strong>Desmos</strong><small>Grafici e funzioni</small></span>
             </a>
 
-            <a class="resource-item resource-link" href="https://www.wolframalpha.com/" rel="noopener noreferrer">
+            <a class="tool-chip" href="https://photomath.com/it" rel="noopener noreferrer">
+              <span class="resource-icon photomath-icon" aria-hidden="true">⌗</span>
+              <span><strong>Photomath</strong><small>Passaggi e controllo esercizi</small></span>
+            </a>
+
+            <a class="tool-chip" href="https://www.wolframalpha.com/" rel="noopener noreferrer">
               <span class="resource-icon wolfram-icon" aria-hidden="true">∑</span>
-              <div><strong>Wolfram|Alpha ↗</strong><small>Formule, unità e controlli.</small></div>
+              <span><strong>Wolfram|Alpha</strong><small>Formule, unità e controlli</small></span>
             </a>
           </div>
         </article>
