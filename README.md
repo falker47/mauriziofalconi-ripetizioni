@@ -2,13 +2,14 @@
 
 Repository del mio sito web dedicato alle ripetizioni scolastiche.
 
-Il progetto è un sito statico, sviluppato con HTML e CSS, con un'interfaccia responsive e senza framework applicativi.
+Il progetto è un sito statico, sviluppato con HTML, CSS e JavaScript. Il Quaderno presenta tre esempi di lezione sfogliabili, con un'interfaccia responsive e senza framework applicativi.
 
 ## Struttura del progetto
 
 - `index.html` — pagina principale del sito.
-- `styles.css` — stili e layout responsive.
-- `assets/` — immagini e risorse grafiche.
+- `quaderno.css` e `quaderno.js` — layout della home e controlli del carosello.
+- `styles.css` — stili delle pagine di servizio e dei reindirizzamenti.
+- `assets/` — immagini, font locali e licenza di Instrument Serif.
 - `404.html` — pagina per gli indirizzi non trovati.
 - `contattami.html`, `prenota-una-lezione.html`, `materiale-didattico.html` — reindirizzamenti dalle vecchie pagine.
 - `scripts/check_site.py` — script per la verifica statica del sito.
@@ -18,13 +19,14 @@ Il progetto è un sito statico, sviluppato con HTML e CSS, con un'interfaccia re
 
 - HTML5
 - CSS3
+- JavaScript
 - Python 3 per le verifiche
 - GitHub Actions per la CI
 - GitHub Pages per l'hosting
 
 Il sito non richiede un backend, un processo di compilazione o l'installazione di dipendenze applicative.
 
-Include una mappa Google Maps incorporata e collegamenti a servizi esterni. Non implementa script di analytics propri.
+La home collega WhatsApp e il sito personale dell'autore. Non implementa script di analytics propri.
 
 ## Esecuzione locale
 
