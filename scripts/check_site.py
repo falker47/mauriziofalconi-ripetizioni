@@ -156,8 +156,7 @@ def main() -> int:
 
     if "verificare la disponibilità nella tua area" not in index_text:
         add_error("index.html: updated Parma availability copy missing", errors)
-    if "ho tutti i supporti necessari (e ti costa meno!)" not in index_text:
-        add_error("index.html: updated online-support copy missing", errors)
+    # Modality and pricing are checked above: do not freeze marketing phrasing in CI.
     if "#388e3c" not in css.lower():
         add_error("styles.css: original primary green #388e3c missing", errors)
 
